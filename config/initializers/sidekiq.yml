@@ -1,0 +1,8 @@
+Sidekiq.configure_client do |config|
+  require 'sidekiq-scheduler/web'
+  config.redis = { url: Rails.configuration.redis_url }
+end
+
+Sidekiq.configure_server do |config|
+  config.redis = { url: Rails.configuration.redis_url }
+end
